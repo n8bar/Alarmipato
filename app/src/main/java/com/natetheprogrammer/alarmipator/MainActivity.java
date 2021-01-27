@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
         Intent my_intent = new Intent(this, AlertBroadcastReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                 this.getApplicationContext(), 2343, my_intent, 0);
+        
         AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
                 + (x * 1000), pendingIntent);
+        
         Toast.makeText(this, "Alarm set in " + x + " seconds", Toast.LENGTH_LONG).show();
     }
 }
